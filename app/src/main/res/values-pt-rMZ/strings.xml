@@ -52,4 +52,5 @@
     <string name="strSaving">Salvando . . .</string>
     <string name="strName">Nome</string>
     <string name="strAddress">Endereço</string>
+    <string name="strDelete">Del</string>
 </resources>

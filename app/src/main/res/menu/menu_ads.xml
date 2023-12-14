@@ -10,6 +10,12 @@
         app:showAsAction="always"
         tools:ignore="AlwaysShowAction" />
     <item
+        android:id="@+id/requests"
+        android:icon="@drawable/list"
+        android:title="requests"
+        app:showAsAction="always"
+        tools:ignore="AlwaysShowAction" />
+    <item
         android:id="@+id/config"
         android:title="@string/strSett"
         app:showAsAction="never" />

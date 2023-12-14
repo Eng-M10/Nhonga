@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -101,6 +102,11 @@ public class HomeActivity extends AppCompatActivity {
 
                             @Override
                             public void onItemLongClickConfirmed(View view, int position, String action) {
+
+                            }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                             }
                         }

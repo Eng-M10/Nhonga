@@ -52,6 +52,7 @@
     <string name="strSaving">Saving . . .</string>
     <string name="strName">Name</string>
     <string name="strAddress">Address</string>
+    <string name="strDelete">Del</string>
 
 
 </resources>

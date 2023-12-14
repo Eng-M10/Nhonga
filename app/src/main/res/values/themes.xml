@@ -3,6 +3,7 @@
     <style name="Base.Theme.Nhonga" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
        <item name="colorPrimary">#00000000</item>
+        <item name="android:textSize">14sp</item>
     </style>
 
     <style name="Theme.Nhonga" parent="Base.Theme.Nhonga" />

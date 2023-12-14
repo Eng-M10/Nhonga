@@ -15,7 +15,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,7 +58,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private List<ItemRequest> itemsrequested = new ArrayList<>();
     private String advertiserID;
     private User user;
+    private ImageButton btnDelete;
     private Request requestRetrived;
+    private int Pay;
 
     private int QtdItems;
     private Double totalRequested;
@@ -119,10 +123,19 @@ public class ProductDetailsActivity extends AppCompatActivity {
                             public void onItemLongClickConfirmed(View view, int position, String action) {
 
                             }
+
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                            }
                         }
 
                 )
         );
+
+        btnDelete.setOnClickListener(v -> {
+            requestRetrived.remove();
+        });
 
 
 
@@ -135,6 +148,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
         retriveUserData();
 
     }
+
+
 
     private void confirmQtd(int position) {
         EditText edtQtd = new EditText(this);
@@ -169,7 +184,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                         // Item não existe na lista, adicione um novo
                         itemRequest.setProductID(selectedProduct.getProduct_id());
                         itemRequest.setProduct_name(selectedProduct.getProduct_name());
-                        itemRequest.setProduct_price(selectedProduct.getProduct_price().toString());
+                        itemRequest.setProduct_price(selectedProduct.getProduct_price());
                         itemRequest.setQuantity(i);
                         itemsrequested.add(itemRequest);
                     }
@@ -251,13 +266,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                QtdItems = 0;
+                totalRequested =0.0;
+                itemsrequested = new ArrayList<>();
+
                 if(snapshot.getValue() != null){
                     requestRetrived = snapshot.getValue(Request.class);
 
                     itemsrequested = requestRetrived.getItens();
-
-                    QtdItems = 0;
-                    totalRequested =0.0;
 
                     for(ItemRequest item : itemsrequested){
                         int qtde = item.getQuantity();
@@ -271,10 +287,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
                 }
 
-                DecimalFormat df = new DecimalFormat("0.00");
+                //DecimalFormat df = new DecimalFormat("0.00");
 
                 textQtd.setText("qtd: "+String.valueOf(QtdItems));
-                textTotal.setText("MZN$" +df.format(totalRequested));
+                textTotal.setText("MZN$" + totalRequested);
 
 
                 dialog.dismiss();
@@ -306,6 +322,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
                 for(DataSnapshot ds : snapshot.getChildren()){
                     products.add(ds.getValue(Product.class));
+
                 }
 
                 adapterProduto.notifyDataSetChanged();
@@ -334,11 +351,61 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
             //Method to comfirm Request
 
+            confirmRequest();
+
 
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void confirmRequest() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this,R.style.AlertDialogCustom);
+        builder.setTitle("Confirmar requisição! Método de Pagamento");
+        CharSequence[] itens = new CharSequence[]{
+                "A vista","M-Pesa","SIMO-REDE","E-mola"
+                //0          1         2            3
+        };
+        builder.setSingleChoiceItems(itens, 0, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                    Pay = which;
+
+            }
+        });
+
+        EditText edtObservacao = new EditText(this);
+        edtObservacao.setHint("Obs");
+        builder.setView(edtObservacao);
+
+        builder.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String obs =  edtObservacao.getText().toString();
+                requestRetrived.setMetodoPagamento(Pay);
+                requestRetrived.setObservacao(obs);
+                requestRetrived.setStatus("Confirmado");
+                requestRetrived.confirmar();
+                requestRetrived.remove();
+                requestRetrived = null;
+            }
+        });
+
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+
+    }
+
+
 
 
     private void initComponents(){
@@ -349,6 +416,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         textQtd = findViewById(R.id.textQtd);
         textTotal = findViewById(R.id.textTotal);
+        btnDelete = findViewById(R.id.btnEliminarPedido);
     }
 
 }

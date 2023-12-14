@@ -15,6 +15,7 @@
     import android.view.MenuItem;
     import android.view.MotionEvent;
     import android.view.View;
+    import android.widget.AdapterView;
 
     import com.google.firebase.auth.FirebaseAuth;
     import com.google.firebase.database.DataSnapshot;
@@ -90,9 +91,12 @@
                                 public void onItemLongClickConfirmed(View view, int position, String action) {
                                     if ("Apagar".equals(action)) {
                                         deleteProducts(position);
-                                    } else if ("Atualizar".equals(action)) {
-                                        // Adicione aqui a lógica para atualizar o produto, se necessário
                                     }
+                                }
+
+                                @Override
+                                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                                 }
 
 
@@ -106,8 +110,8 @@
         private void showConfirmationDialog(final int position) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(products.get(position).getProduct_name())
-                    .setItems(new CharSequence[]{"Apagar", "Atualizar"}, (dialog, which) -> {
-                        String[] actions = {"Apagar", "Atualizar"};
+                    .setItems(new CharSequence[]{"Apagar"}, (dialog, which) -> {
+                        String[] actions = {"Apagar"};
                         mListener.onItemLongClickConfirmed(null, position, actions[which]);
                     })
                     .setCancelable(true)
@@ -169,6 +173,9 @@
                openConfig();
            }else if(item.getItemId() == R.id.newProduct){
                openNewProduct();
+           } else if (item.getItemId() == R.id.requests) {
+               openRequests();
+               
            }
 
             return super.onOptionsItemSelected(item);
@@ -188,6 +195,9 @@
         }
         private void openNewProduct(){
             startActivity(new Intent(AdvertiserActivity.this, ProductActivity.class));
+        }
+        private void openRequests(){
+            startActivity(new Intent(AdvertiserActivity.this, RequestActivity.class));
         }
 
 

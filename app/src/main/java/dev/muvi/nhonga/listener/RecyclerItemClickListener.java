@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,8 @@ public class RecyclerItemClickListener implements RecyclerView.OnItemTouchListen
         void onItemClick(View view, int position);
         void onLongItemClick(View view, int position);
         void onItemLongClickConfirmed(View view, int position, String action);
+
+        void onItemClick(AdapterView<?> parent, View view, int position, long id);
     }
 
 

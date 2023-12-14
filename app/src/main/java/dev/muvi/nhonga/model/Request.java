@@ -2,6 +2,7 @@ package dev.muvi.nhonga.model;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.HashMap;
 import java.util.List;
 
 import dev.muvi.nhonga.helper.FirebaseConfig;
@@ -125,5 +126,40 @@ public class Request {
                 .child( getIdUsuario() );
         pedidoRef.setValue( this );
 
+    }
+    public void remove() {
+
+        DatabaseReference firebaseRef = FirebaseConfig.getReferenceFirebase();
+        DatabaseReference pedidoRef = firebaseRef
+                .child("user_request")
+                .child( getIdEmpresa() )
+                .child( getIdUsuario() );
+        pedidoRef.removeValue( );
+
+    }
+
+    public void confirmar() {
+
+        DatabaseReference firebaseRef = FirebaseConfig.getReferenceFirebase();
+        DatabaseReference pedidoRef = firebaseRef
+                .child("request")
+                .child( getIdEmpresa() )
+                .child( getIdPedido() );
+        pedidoRef.setValue( this );
+
+
+    }
+
+    public void atualizarStatus() {
+
+        HashMap<String, Object> status = new HashMap<>();
+        status.put("status", getStatus() );
+
+        DatabaseReference firebaseRef = FirebaseConfig.getReferenceFirebase();
+        DatabaseReference pedidoRef = firebaseRef
+                .child("request")
+                .child( getIdEmpresa() )
+                .child( getIdPedido() );
+        pedidoRef.updateChildren( status );
     }
 }

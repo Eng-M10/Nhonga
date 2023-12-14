@@ -40,8 +40,8 @@ public class ItemRequest {
         return product_price;
     }
 
-    public void setProduct_price(String product_price) {
-        this.product_price = Double.parseDouble(product_price);
+    public void setProduct_price(Double product_price) {
+        this.product_price = product_price;
     }
 
     public int getQuantity() {

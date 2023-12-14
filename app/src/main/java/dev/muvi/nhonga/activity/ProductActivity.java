@@ -160,23 +160,18 @@ implements View.OnClickListener{
 
     }
 
-    /**
-     *
-     *
-     *
-     */
-
     private Product configProduct(){
         String productname = edtName.getText().toString();
         String price;
         price = edtPrice.getText().toString();
+        Double Dbprice = Double.parseDouble(price);
         String phone = edtPhone.getText().toString();
         String desc = edtDesc.getText().toString();
 
         Product product = new Product();
         product.setUser_id(usr);
         product.setProduct_name(productname);
-        product.setProduct_price(price);
+        product.setProduct_price(Dbprice);
         product.setProduct_phone(phone);
         product.setProduct_description(desc);
 
@@ -194,7 +189,7 @@ implements View.OnClickListener{
         product = configProduct();
 
         if(photoselected.size() != 0){
-            if(_validate(product.getProduct_name(),product.getProduct_price().toString(),product.getProduct_phone(),product.getProduct_description())){
+            if(_validate(product.getProduct_name(),String.valueOf(product.getProduct_price()),product.getProduct_phone(),product.getProduct_description())){
                 SavingProduct();
             }else{
                 Toast.makeText(ProductActivity.this,getString(R.string.strFailedValid),Toast.LENGTH_LONG).show();
