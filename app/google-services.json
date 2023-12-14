@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "6047187571",
+    "firebase_url": "https://nhonga-7ddd0-default-rtdb.firebaseio.com",
+    "project_id": "nhonga-7ddd0",
+    "storage_bucket": "nhonga-7ddd0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6047187571:android:15209b595acf9132b4e006",
+        "android_client_info": {
+          "package_name": "dev.muvi.nhonga"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAITgvCZ1lIEnsT3xjcwc6jqb3KbSAOlTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

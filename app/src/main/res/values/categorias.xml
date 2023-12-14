@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="categorias">
+        <item>@string/cat1</item>
+        <item>@string/cat2</item>
+        <item>@string/cat3</item>
+        <item>@string/cat4</item>
+        <item>@string/cat5</item>
+        <item>@string/cat6</item>
+        <item>@string/cat7</item>
+        <item>@string/cat8</item>
+        <item>@string/cat9</item>
+        <item>@string/cat10</item>
+        <item>@string/cat11</item>
+        <item>@string/cat12</item>
+        <item>@string/cat13</item>
+        <item>@string/cat14</item>
+        <item>@string/cat15</item>
+    </array>
+</resources>

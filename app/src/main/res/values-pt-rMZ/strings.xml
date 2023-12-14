@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Nhonga</string>
+    <string name="strSlogan">O Lodja ja Abriu!!</string>
+    <string name="password">*****</string>
+    <string name="strsignin">Login</string>
+    <string name="strsignup">Cadastro</string>
+    <string name="stbrnauth">Continuar</string>
+    <string name="strErrorEmail">O campo de email é obrigatório</string>
+    <string name="strErrorPassword">O campo da palavra-passe é obrigatório</string>
+    <string name="strErrorGen">Os campos estão vazios!</string>
+    <string name="strEntity">Usuario</string>
+    <string name="strEntityII">Anunciante</string>
+    <string name="strSett">Configurações</string>
+    <string name="strexit">Exit</string>
+    <string name="new_product">Novo Produto</string>
+    <string name="strnewproduct">Novo Produto</string>
+    <string name="strAdsName">Nome do Anunciante (Empresa/Loja)</string>
+
+    <!-- Categorias -->
+    <string name="cat1">Eletrônicos</string>
+    <string name="cat2">Moda e Acessórios</string>
+    <string name="cat3">Casa e Decoração</string>
+    <string name="cat4">Livraria</string>
+    <string name="cat5">Saúde e Beleza</string>
+    <string name="cat6">Alimentos e Bebidas</string>
+    <string name="cat7">Esportes e Fitness</string>
+    <string name="cat8">Brinquedos e Jogos</string>
+    <string name="cat9">Lar e Jardim</string>
+    <string name="cat10">Automotivo</string>
+    <string name="cat11">Viagens e Bagagem</string>
+    <string name="cat12">Escritório e Papelaria</string>
+    <string name="cat13">Animais de Estimação</string>
+    <string name="cat14">Bebês e Crianças</string>
+    <string name="cat15">Entretenimento</string>
+
+
+    <string name="strUploadImageError">Erro ao Carregar a Imagem</string>
+    <string name="strUploadSuccess">Imagem Carregada Com Sucesso</string>
+    <string name="strErrNameAds">Digite um Nome válido</string>
+    <string name="strErrAddrAds">Digite um Endereço válido</string>
+    <string name="strBtnAdsConfSave">Salvar</string>
+    <string name="strAdsConfigEmptyForm">Os campos de Nome e Endereço estão vazios. Preencha-os com dados válidos!</string>
+    <string name="strSuccessValid">Salvo com sucesso</string>
+    <string name="strFailedValid">Processo de Salvamento Falhou!</string>
+    <string name="strAdsAddr">Endereço Físico</string>
+    <string name="strProdName">Nome e Marca do Produto</string>
+    <string name="strProdPrice">$ 000.00 (Preço)</string>
+    <string name="strProdPhone">258 812345678</string>
+    <string name="strProdDesc">Descrição do Produto</string>
+    <string name="strSelectImage">Escolha pelo menos uma imagem!</string>
+    <string name="strSaving">Salvando . . .</string>
+    <string name="strName">Nome</string>
+    <string name="strAddress">Endereço</string>
+</resources>

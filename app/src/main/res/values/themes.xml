@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Nhonga" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+       <item name="colorPrimary">#00000000</item>
+    </style>
+
+    <style name="Theme.Nhonga" parent="Base.Theme.Nhonga" />
+
+
+    <style name="buttonDefault" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/golden</item>
+        <item name="colorButtonNormal">@color/golden</item>
+        <item name="android:textColor">@color/black_gray</item>
+    </style>
+    <style name="Theme.Nhonga.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Nhonga.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Nhonga.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/spots_dialog_color</item>
+    </style>
+
+</resources>

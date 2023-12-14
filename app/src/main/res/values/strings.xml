@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">Nhonga</string>
+    <string name="strSlogan">The Store Was Opened!</string>
+    <string name="strEmail" translatable="false">E-mail</string>
+    <string name="password">*****</string>
+    <string name="strsignin">Sign-in</string>
+    <string name="strsignup">Sign-up</string>
+    <string name="stbrnauth">Continue</string>
+    <string name="strErrorEmail">The email field is required!</string>
+    <string name="strErrorPassword">The Password field is required!</string>
+    <string name="strErrorGen">The fields are empty!</string>
+    <string name="strEntity">User</string>
+    <string name="strEntityII">Advertiser</string>
+    <string name="strSett">Settings</string>
+    <string name="strexit">Exit</string>
+    <string name="new_product">New product</string>
+    <string name="strnewproduct">New Product</string>
+    <string name="strAdsName">"Advertiser Name "</string>
+
+    <!-- Category of Products -->
+    Eletrônicos
+
+    <string name="cat1">Electronics</string>
+    <string name="cat2">Fashion and Accessories</string>
+    <string name="cat3"> Home and Decor</string>
+    <string name="cat4">Books and Reading Materials</string>
+    <string name="cat5"> Health and Beauty</string>
+    <string name="cat6">Food and Beverages</string>
+    <string name="cat7">Sports and Fitness</string>
+    <string name="cat8">Toys and Games</string>
+    <string name="cat9">Home and Garden Care</string>
+    <string name="cat10">Automotive</string>
+    <string name="cat11">Travel and Luggage</string>
+    <string name="cat12">Office and Stationery</string>
+    <string name="cat13">Pet Products</string>
+    <string name="cat14">Baby and Kids Products</string>
+    <string name="cat15"> Entertainment Equipment</string>
+    <string name="strUploadImageError">Error on Upload Image</string>
+    <string name="strUploadSuccess">Image Uploaded Successfully</string>
+    <string name="strErrNameAds">Type a valid Name</string>
+    <string name="strErrAddrAds">Type a valid Address</string>
+    <string name="strBtnAdsConfSave">Save</string>
+    <string name="strAdsConfigEmptyForm">The Name and Address fields are Empty. Please Fill with valid data.</string>
+    <string name="strSuccessValid">Saved Successfully</string>
+    <string name="strFailedValid">Saved Process Failed!</string>
+    <string name="strAdsAddr">Advertiser Address</string>
+    <string name="strProdName">Product Name / Brand</string>
+    <string name="strProdPrice">$ 000.00 (Price)</string>
+    <string name="strProdPhone">(+123) 13241524</string>
+    <string name="strProdDesc">Product Description</string>
+    <string name="strSelectImage">Select photos</string>
+    <string name="strSaving">Saving . . .</string>
+    <string name="strName">Name</string>
+    <string name="strAddress">Address</string>
+
+
+</resources>

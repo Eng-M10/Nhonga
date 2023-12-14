@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/black_gray"
+    tools:context=".activity.UserConfigActivity">
+
+    <include
+        android:id="@+id/in"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:orientation="vertical">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+
+            android:id="@+id/user_profile"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/profile_default"
+
+            />
+
+        <EditText
+            android:id="@+id/textUserName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="12dp"
+            android:autofillHints=""
+            android:background="@drawable/edt"
+            android:ems="10"
+            android:hint="@string/strName"
+            android:inputType="text|textPersonName"
+            android:padding="14dp"
+            android:textSize="20sp"
+            tools:ignore="LabelFor" />
+
+
+        <EditText
+            android:id="@+id/textUserPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="12dp"
+            android:autofillHints=""
+            android:background="@drawable/edt"
+            android:ems="10"
+            android:hint="@string/strProdPhone"
+            android:inputType="phone"
+            android:padding="14dp"
+            android:textSize="20sp"
+            tools:ignore="LabelFor" />
+
+        <EditText
+            android:id="@+id/textUserAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="12dp"
+            android:autofillHints=""
+            android:background="@drawable/edt"
+            android:ems="10"
+            android:hint="@string/strAddress"
+            android:inputType="text|textPersonName"
+            android:padding="14dp"
+            android:textSize="20sp"
+            tools:ignore="LabelFor" />
+
+        <Button
+            android:id="@+id/btnSaveUserConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="16dp"
+            android:text="@string/strBtnAdsConfSave"
+            android:textColor="#D81B60"
+            android:textSize="16sp"
+            android:theme="@style/buttonDefault" />
+
+    </LinearLayout>
+
+</LinearLayout>
