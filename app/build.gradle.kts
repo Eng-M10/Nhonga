@@ -69,4 +69,7 @@ dependencies {
     //AlertDialog
     implementation("com.github.d-max:spots-dialog:1.1")
 
+    //ViewPager
+    implementation ("androidx.viewpager2:viewpager2:1.1.0-alpha01")
+
 }

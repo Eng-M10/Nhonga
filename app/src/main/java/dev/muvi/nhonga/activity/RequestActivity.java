@@ -6,9 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -122,47 +124,57 @@ public class RequestActivity extends AppCompatActivity {
     }
 
 
-
     private void retrieveRequests() {
-
         dialog = new SpotsDialog.Builder()
                 .setContext(this)
                 .setMessage("Carregando dados")
-                .setCancelable( false )
+                .setCancelable(false)
                 .build();
         dialog.show();
 
-        DatabaseReference reqRef = dbref
-                .child("request")
-                .child(advertiserID);
-        Query requestSearch = reqRef.orderByChild("status")
-                .equalTo("Confirmado");
-
+        DatabaseReference reqRef = dbref.child("request").child(advertiserID);
+        Query requestSearch = reqRef.orderByChild("status").equalTo("Confirmado");
 
         requestSearch.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-
                 pedidos.clear();
-                if( snapshot.getValue() != null ){
-                    for (DataSnapshot ds: snapshot.getChildren()){
+
+                if (snapshot.getValue() != null) {
+                    for (DataSnapshot ds : snapshot.getChildren()) {
                         Request pedido = ds.getValue(Request.class);
                         pedidos.add(pedido);
                     }
                     adapterPedido.notifyDataSetChanged();
-                    dialog.dismiss();
                 }
 
+                dialog.dismiss();
+
+                // Verifique se a lista de pedidos está vazia
+                if (pedidos.isEmpty()) {
+                    // Exiba um Toast informativo
+                    Toast.makeText(RequestActivity.this, "Nenhum pedido encontrado", Toast.LENGTH_SHORT).show();
+
+                    // Chame um método para voltar à AdvertiserActivity
+                    returnToAdvertiserActivity();
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                // Handle onCancelled event
             }
         });
-
-
     }
+
+    // Método para voltar à AdvertiserActivity
+    private void returnToAdvertiserActivity() {
+        Intent intent = new Intent(RequestActivity.this, AdvertiserActivity.class);
+        // Adicione quaisquer extras ou configurações necessárias para a AdvertiserActivity
+        startActivity(intent);
+        finish(); // Encerre a atividade atual para que o usuário não possa voltar pressionando o botão de retorno.
+    }
+
 
 
     private void initComponents() {

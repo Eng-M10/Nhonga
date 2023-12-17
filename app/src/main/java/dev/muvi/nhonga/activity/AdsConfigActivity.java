@@ -130,6 +130,7 @@ public class AdsConfigActivity extends AppCompatActivity {
 
                     //Recuperar Imagem de Perfil
                     urlimg = ads.getImg_url();
+
                     if( urlimg != ""){
                         Picasso.get()
                                 .load(urlimg)

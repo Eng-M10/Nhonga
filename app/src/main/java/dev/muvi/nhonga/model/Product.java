@@ -4,11 +4,12 @@ import android.util.Log;
 
 import com.google.firebase.database.DatabaseReference;
 
+import java.io.Serializable;
 import java.util.List;
 
 import dev.muvi.nhonga.helper.FirebaseConfig;
 
-public class Product {
+public class Product implements Serializable {
 
 
     private String user_id;
@@ -21,9 +22,12 @@ public class Product {
 
 
     public Product() {
-        DatabaseReference prodRef = FirebaseConfig.getReferenceFirebase()
-                .child("product");
-        setProduct_id(prodRef.push().getKey());
+
+        if (getProduct_id() == null) {
+            DatabaseReference prodRef = FirebaseConfig.getReferenceFirebase()
+                    .child("product");
+            setProduct_id(prodRef.push().getKey());
+        }
     }
 
 
@@ -105,4 +109,5 @@ public class Product {
                 .child(getProduct_id());
         adsRef.setValue(this);
     }
+
 }

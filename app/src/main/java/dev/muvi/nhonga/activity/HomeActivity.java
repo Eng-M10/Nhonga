@@ -97,7 +97,8 @@ public class HomeActivity extends AppCompatActivity {
 
                             @Override
                             public void onLongItemClick(View view, int position) {
-                               // Toast.makeText(HomeActivity.this,"Longooo",Toast.LENGTH_SHORT).show();
+
+
                             }
 
                             @Override

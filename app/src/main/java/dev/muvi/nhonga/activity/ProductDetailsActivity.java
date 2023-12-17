@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -34,6 +35,7 @@ import java.util.List;
 
 import dev.muvi.nhonga.R;
 import dev.muvi.nhonga.adapter.AdapterProduto;
+import dev.muvi.nhonga.adapter.SliderAdapter;
 import dev.muvi.nhonga.helper.FirebaseConfig;
 import dev.muvi.nhonga.helper.UserFirebase;
 import dev.muvi.nhonga.listener.RecyclerItemClickListener;
@@ -116,7 +118,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
                             @Override
                             public void onLongItemClick(View view, int position) {
-
+                                showSliderDialog(products.get(position).getImages());
                             }
 
                             @Override
@@ -148,6 +150,20 @@ public class ProductDetailsActivity extends AppCompatActivity {
         retriveUserData();
 
     }
+
+    private void showSliderDialog(List<String> imageUrls) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.dialog_slider, null);
+        builder.setView(view);
+
+        ViewPager2 viewPager = view.findViewById(R.id.viewPager);
+        SliderAdapter sliderAdapter = new SliderAdapter(imageUrls);
+        viewPager.setAdapter(sliderAdapter);
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
 
 
 

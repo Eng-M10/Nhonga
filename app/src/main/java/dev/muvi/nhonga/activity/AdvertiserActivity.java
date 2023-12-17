@@ -67,6 +67,9 @@
 
             retriveProducts();
 
+
+
+
             recyclerViewProducts.addOnItemTouchListener(
                     new RecyclerItemClickListener(
                             this,
@@ -91,6 +94,16 @@
                                 public void onItemLongClickConfirmed(View view, int position, String action) {
                                     if ("Apagar".equals(action)) {
                                         deleteProducts(position);
+                                    } else if ("Atualizar".equals(action)) {
+
+
+                                        Product selectedproduct = products.get(position);
+
+                                        Intent i = new Intent(AdvertiserActivity.this,ProductActivity.class);
+                                        i.putExtra("product",selectedproduct);
+
+                                        startActivity(i);
+
                                     }
                                 }
 
@@ -110,8 +123,8 @@
         private void showConfirmationDialog(final int position) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(products.get(position).getProduct_name())
-                    .setItems(new CharSequence[]{"Apagar"}, (dialog, which) -> {
-                        String[] actions = {"Apagar"};
+                    .setItems(new CharSequence[]{"Apagar","Atualizar"}, (dialog, which) -> {
+                        String[] actions = {"Apagar","Atualizar"};
                         mListener.onItemLongClickConfirmed(null, position, actions[which]);
                     })
                     .setCancelable(true)
